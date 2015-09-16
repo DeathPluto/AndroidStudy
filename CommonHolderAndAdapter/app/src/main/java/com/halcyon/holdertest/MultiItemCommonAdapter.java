@@ -1,6 +1,5 @@
 package com.halcyon.holdertest;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -10,9 +9,9 @@ public abstract class MultiItemCommonAdapter<T> extends CommonAdapter<T> {
 
     protected MultiItemTypeSupport<T> mMultiItemTypeSupport;
 
-    public MultiItemCommonAdapter(Context context, List<T> datas,
+    public MultiItemCommonAdapter(List<T> datas,
                                   MultiItemTypeSupport<T> multiItemTypeSupport) {
-        super(context, datas, -1);
+        super(datas, -1);
         mMultiItemTypeSupport = multiItemTypeSupport;
     }
 
@@ -39,7 +38,7 @@ public abstract class MultiItemCommonAdapter<T> extends CommonAdapter<T> {
 
         int layoutId = mMultiItemTypeSupport.getLayoutId(position,
                 getItem(position));
-        ViewHolder viewHolder = ViewHolder.get(mContext, convertView, parent,
+        ViewHolder viewHolder = ViewHolder.get(parent.getContext(), convertView, parent,
                 layoutId, position);
         convert(viewHolder, getItem(position));
         return viewHolder.getConvertView();
