@@ -28,3 +28,11 @@ proguard/
 
 # Iml Files
 *.iml
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+
