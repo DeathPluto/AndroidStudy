@@ -41,7 +41,7 @@ public class CanvasFragment1 extends BaseFragment {
         addView(mCanvasView);
     }
 
-    private void addView(View view){
+    private void addView(View view) {
         mLinearLayout.addView(view);
     }
 }
