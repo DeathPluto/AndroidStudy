@@ -1,10 +1,11 @@
 package com.halcyon;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,10 +13,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.halcyon.adapter.FragmentAdapter;
+import com.halcyon.fragment.Fragment1;
+import com.halcyon.widget.StillViewPager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    StillViewPager mViewPager;
+    FragmentAdapter mAdapter;
+    List<Fragment> mFragmentList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +51,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        init();
+    }
+
+    private void init() {
+        mViewPager = getViewById(R.id.viewpager);
+        mFragmentList.add(new Fragment1());
+        mViewPager.setAdapter(mAdapter = new FragmentAdapter(getSupportFragmentManager(),mFragmentList));
     }
 
     @Override
@@ -97,5 +115,17 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    /**
+     * 查找View
+     *
+     * @param id   控件的id
+     * @param <VT> View类型
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    protected <VT extends View> VT getViewById(@IdRes int id) {
+        return (VT) this.findViewById(id);
     }
 }
