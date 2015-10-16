@@ -33,14 +33,21 @@ public class MainActivity extends AppCompatActivity {
                 kcoinService.tradeList(new TradeListRequest(), new Callback<TradeListResponse>() {
                     @Override
                     public void success(TradeListResponse tradeListResponse, Response response) {
-                        Log.e("success",tradeListResponse.content.size()+"");
+                        Log.e("success", tradeListResponse.content.size() + "");
                     }
 
                     @Override
                     public void failure(RetrofitError error) {
-                        Log.e("failure",error.getMessage()+"");
+                        Log.e("failure", error.getMessage() + "");
                     }
                 });
+            }
+        });
+
+        findViewById(R.id.btn_post2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
