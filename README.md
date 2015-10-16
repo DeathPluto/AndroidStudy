@@ -7,7 +7,7 @@
   [CustomView]: https://github.com/DeathPluto/AndroidStudy/tree/master/CustomView   
 
 * [RxJavaTest][] : RxJava & RxAndroid & Retrofit
-  [RxJavaTest]: http://www.baidu.com
+  [RxJavaTest]: https://github.com/DeathPluto/AndroidStudy/tree/master/RxJavaTest
 
 * [CanvasTest][] : Canvas & Paint
-  [CanvasTest]: http://www.baidu.com
+  [CanvasTest]: https://github.com/DeathPluto/AndroidStudy/tree/master/CanvasTest
